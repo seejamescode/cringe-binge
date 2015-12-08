@@ -53,6 +53,8 @@
   },
   "dependencies": {
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-collapse": "^1.4.0",
+    "react-dom": "^0.14.0",
+    "react-motion": "^0.3.1"
   }
 }

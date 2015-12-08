@@ -10,6 +10,7 @@
   width: 100%;
 
   @media (min-width: 768px) {
+    display: inline-block;
     -webkit-justify-content: initial;
     justify-content: initial;
   }

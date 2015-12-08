@@ -2,10 +2,23 @@
   margin: 0.5em;
   width: calc(100% - 1em);
 
+  .card__tile {
+    background-color: #F2F2F2;
+
+    &:hover, &.card__tile--expanded {
+      background-color: #E0E0E0;
+    }
+
+    .card__tile__description {
+      margin: 0;
+      overflow: hidden;
+    }
+  }
+
   .card__pin {
 
     .card__pin__triangle {
-      border-color: transparent transparent #787678 transparent;
+      border-color: transparent transparent #AFAEAF transparent;
     }
 
     &:hover {

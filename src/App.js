@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./sass/Container.scss";
 
 import {
   Breadcrumb,
@@ -21,10 +22,8 @@ import CardList from './components/CardList';
 export class App extends Component {
   render() {
     return (
-      <div style={{
-        margin: '4em 6em',
-        backgroundColor: '#fff',
-        padding: '4em'
+      <div className="container--poseidon" style={{
+        backgroundColor: '#fff'
       }}>
         <CardList>
           <Card

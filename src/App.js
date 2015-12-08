@@ -42,12 +42,6 @@ export class App extends Component {
             title='Load Tweet data directly into dashDB'
             description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
         </CardList>
-        <Button href="" hyperlink disabled>
-          Hyperlink Disabled
-        </Button>
-        <div  style={{margin: '4em'}}>
-          <Slider start={[15, 85]} lower={0} upper={100} step={1} />
-        </div>
       </div>
     );
   }

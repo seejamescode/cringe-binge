@@ -15,38 +15,34 @@ import {
   ToggleButton
 } from '../bower_components/ap-components-react/dist/ap-components-react.js';
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-    this.interval = setInterval(() => this.tick(), 1000);
-  }
-
-  tick() {
-    this.setState({
-      counter: this.state.counter + this.props.increment
-    });
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    return (
-      <h1>
-        Counter ({this.props.increment}): {this.state.counter}
-      </h1>
-    );
-  }
-}
+import Card from './components/Card';
+import CardList from './components/CardList';
 
 export class App extends Component {
   render() {
     return (
-      <div>
-        <Counter increment={1} />
-        <Counter increment={5} />
+      <div style={{
+        margin: '4em 6em',
+        backgroundColor: '#fff',
+        padding: '4em'
+      }}>
+        <CardList>
+          <Card
+            date='October 22, 2015'
+            img='https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150'
+            title='Load Tweet data directly into dashDB'
+            description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
+          <Card
+            date='October 22, 2015'
+            img='https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150'
+            title='Load Tweet data directly into dashDB'
+            description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
+          <Card
+            date='October 22, 2015'
+            img='https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150'
+            title='Load Tweet data directly into dashDB'
+            description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
+        </CardList>
         <Button href="" hyperlink disabled>
           Hyperlink Disabled
         </Button>

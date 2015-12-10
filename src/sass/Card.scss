@@ -23,7 +23,7 @@
       border-color: transparent transparent #AFAEAF transparent;
     }
 
-    &:hover, .card__pin__triangle--open {
+    &:hover, .card__pin--pinned {
       .card__pin__triangle {
         border-color: transparent transparent #178AC5 transparent;
       }

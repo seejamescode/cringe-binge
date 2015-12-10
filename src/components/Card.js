@@ -18,9 +18,9 @@ export default class Card extends React.Component {
       this.handleClick;
     }
 
-    const toggleTileClass = this.state.open
-      ? 'card__tile card__tile--expanded'
-      : 'card__tile'
+    const togglePinned = this.props.pinned
+      ? 'card__pin card__pin--pinned'
+      : 'card__pin'
 
     const toggleDescriptionHeight = this.state.open
       ? {height: this.props.descriptionHeight}
@@ -32,7 +32,7 @@ export default class Card extends React.Component {
           maxWidth: '450px',
           position: 'relative'
         }}>
-        <button type="button" className={toggleTileClass}  onClick={this.handleClick} style={{
+        <button type="button" className='card__tile'  onClick={this.handleClick} style={{
             border: 'none',
             padding: '2em 2em 0 2em',
             textAlign: 'left',
@@ -62,7 +62,7 @@ export default class Card extends React.Component {
             </Collapse>
           </div>
         </button>
-        <button type="button" className="card__pin" style={{
+        <button type="button" className='card__pin' style={{
             backgroundColor: 'transparent',
             border: 'none',
             bottom: '0',

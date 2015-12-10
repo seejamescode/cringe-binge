@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "presets": ["es2015", "stage-0", "react"]
-}
-=======
-  "stage": 0,
+ "stage": 0,
   "env": {
     "development": {
       "plugins": ["react-transform"],
@@ -22,4 +18,3 @@
     }
   }
 }
->>>>>>> 1f3fe8b6fcfb427e237db343ec187f5261152393

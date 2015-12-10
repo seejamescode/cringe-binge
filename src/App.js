@@ -16,8 +16,8 @@ import {
   ToggleButton
 } from '../bower_components/ap-components-react/dist/ap-components-react.js';
 
-import Card from './components/Card';
 import CardList from './components/CardList';
+var cards = require("./cards.json");
 
 export class App extends Component {
   render() {
@@ -25,22 +25,7 @@ export class App extends Component {
       <div className="container--poseidon" style={{
         backgroundColor: '#fff'
       }}>
-        <CardList source='./cards.json'>
-          <Card
-            date='October 22, 2015'
-            img='https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150'
-            title='Load Tweet data directly into dashDB'
-            description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
-          <Card
-            date='October 22, 2015'
-            img='https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150'
-            title='Load Tweet data directly into dashDB'
-            description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
-          <Card
-            date='October 22, 2015'
-            img='https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150'
-            title='Load Tweet data directly into dashDB'
-            description='You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.You can now use dashDB to load data from the IBM Insights for Twitter service. Search for relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.' />
+        <CardList source={cards}>
         </CardList>
       </div>
     );

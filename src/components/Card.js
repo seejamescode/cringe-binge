@@ -53,7 +53,7 @@ export default class Card extends React.Component {
           <div style={{
                 marginTop: '1em'
               }}>
-            <Collapse isOpened={this.state.open} springConfig={[200, 20]}>
+            <Collapse isOpened={this.state.open} springConfig={[300, 20]}>
               <p ref="description" className='card__tile__description' style={{
                   paddingBottom: '2em'
                 }}>

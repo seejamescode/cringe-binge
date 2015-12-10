@@ -3,10 +3,12 @@
   width: calc(100% - 1em);
 
   .card__tile {
-    background-color: #F2F2F2;
+    background-color: #F2F2F2;  
 
-    &:hover, &.card__tile--expanded {
-      background-color: #E0E0E0;
+    /* remember to define focus styles! */
+    &:focus, &:hover {
+      background-color: #E0E0E0;  
+      outline: 0;
     }
 
     .card__tile__description {
@@ -21,7 +23,7 @@
       border-color: transparent transparent #AFAEAF transparent;
     }
 
-    &:hover {
+    &:hover, .card__pin__triangle--open {
       .card__pin__triangle {
         border-color: transparent transparent #178AC5 transparent;
       }

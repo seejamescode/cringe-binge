@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 node_modules
 npm-debug.log
 .DS_Store
 dist
+=======
+.DS_Store
+node_modules
+bower_components
+npm-debug.log
+>>>>>>> 1f3fe8b6fcfb427e237db343ec187f5261152393

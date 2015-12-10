@@ -1,0 +1,44 @@
+.card {
+  margin: 0.5em;
+  width: calc(100% - 1em);
+
+  .card__tile {
+    background-color: #F2F2F2;
+
+    &:hover, &.card__tile--expanded {
+      background-color: #E0E0E0;
+    }
+
+    .card__tile__description {
+      margin: 0;
+      overflow: hidden;
+    }
+  }
+
+  .card__pin {
+
+    .card__pin__triangle {
+      border-color: transparent transparent #AFAEAF transparent;
+    }
+
+    &:hover {
+      .card__pin__triangle {
+        border-color: transparent transparent #178AC5 transparent;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin: 1em;
+    width: calc(50% - 2em);
+  }
+
+  @media (min-width: 1280px) {
+    margin: 2em;
+    width: calc(33.33% - 4em);
+  }
+
+  @media (min-width: 1900px) {
+    width: calc(25% - 4em);
+  }
+}

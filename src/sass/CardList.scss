@@ -1,0 +1,17 @@
+.cardList {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  @media (min-width: 768px) {
+    display: inline-block;
+    -webkit-justify-content: initial;
+    justify-content: initial;
+  }
+}

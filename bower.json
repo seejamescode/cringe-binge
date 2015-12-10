@@ -1,0 +1,18 @@
+{
+  "name": "poseidon-homepage-redesign",
+  "version": "0.0.1",
+  "description": "A redesign for dashDB's current homepage.",
+  "moduleType": "globals",
+  "main": [
+    "app/styles",
+    "app/scripts",
+    "app/images"
+  ],
+  "license": "",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "ap-components-react": "*"
+  }
+}

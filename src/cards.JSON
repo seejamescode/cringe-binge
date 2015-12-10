@@ -2,76 +2,99 @@
 	{
 		date: "10/22/15",
 		title: "Load Tweet data directly into dashDB",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "You can now use dashDB to load data from the IBM Insights for Twitter service. Search fo relevant Tweet data, create and connect to your Twitter Bluemix service, and then load your data into the database all in the dashDB web console.",
-		pinned: "true",
+		pinned: "true"
 	},
 	{
 		date: "10/22/15",
 		title: "Load open data",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "Find publicly available data sets shared by government agencies, scientific organizations, and additional groups and load them into dashDB.",
-		pinned: "true",
+		pinned: "true"
 	},
 	{
 		date: "10/22/15",
 		title: "Sync from Cloudant replaced by loading JSON from Cloudant.",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "Sync from Cloudant has been removed from the web console. You can load data directly from a Cloudant account. See Load JSON from Cloudant database into dashDB.",
-		pinned: "false",
+		pinned: "true"
 	},
 	{
 		date: "10/22/15",
 		title: "Improved SQL cross-product compatibility",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "- Migrate tables exceeding 32K - Use a FROM clause with the UPDATE statement to update columns in a target table using values from one or more other tables. Previously, to accomplish this kind of inner join, you had to use the MERGE statement.",
-		pinned: "false",
+		pinned: "true"
 	},
 	{
 		date: "10/22/15",
 		title: "Database connection privilege",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "Enterprise plan administrators can configure users to connect to the dashDB database from anywhere or allow connections from only a trusted host or hosts. A user's connection privilege can be configured on the Settings > Users and Privileges dashDB console page.",
+		pinned: "false"
 	},
 	{
 		date: "09/28/15",
 		title: "Import/export analytic models",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "You now have the ability to export models from one database and then import them into another database. Previously, models could only be copied within the same database.",
+		pinned: "false"
 	},
 	{
 		date: "09/28/15",
 		title: "Decision Trees",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "dashDB now supports the creation and use of decision trees, which are hierarchical structures that allow you to make optimal decisions by graphically representing events as branches and considering potential outcomes.",
+		pinned: "false"
 	}
 	{
 		date: "09/28/15",
 		title: "Database conversion",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "The IBM Database Conversion Workbench has been enhanced for the following: - IBM PureData System for Analytics to IBM dashDB migrations - Oracle migrations - SQL Server to DB2 migrations For more information see Release Notes for Database Conversion Workbench",
+		pinned: "false"
 	}
 	{
 		date: "07/31/15",
 		title: "Analytic Stored Procedures",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "You can use the analytic stored procedures of dashDB to analyze your data and improve decisions with predictive analytics. You can leverage the linear regression data mining algorithms within SQL and use the stored procedures of the metadata management component to access and manage the analytics models. For more information about analytic stored procedures, see Analytic stored procedures.",
 	}
 	{
 		date: "07/31/15",
 		title: "Oracle compatibility",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "You can now roll out your enterprise dashDB deployment in Oracle compatibility mode. Choose this option if you are moving from Oracle to dashDB.",
+		pinned: "false"
 	}
 	{
 		date: "07/31/15",
 		title: "Database conversion",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "You can convert an Oracle database or an IBM PureData™ System for Analytics database to an IBM dashDB database. The IBM Database Conversion Workbench has been updated to improve performance and user experience.",
+		pinned: "false"
 	}
 	{
 		date: "07/31/15",
 		title: "Connect with IBM Data Server Manager (DSM)",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "IBM Data Server Manager can be connected to a dashDB database, enabling database monitoring and management from the DSM web console. For more information, see Connecting Data Server Manager to dashDB.",
+		pinned: "false"
 	}
 	{
 		date: "07/19/15",
 		title: "Which Load is Right for Me replaced by Load Hub",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "The Which Load is Right for Me? page has now changed to the Load Hub page. You can find it in Load > Load Hub in the navigation.",
+		pinned: "false"
 	}
 	{
 		date: "07/19/15",
 		title: "moveToCloud script",
+		img: "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		description: "The moveToCloud script and information are available from the Load > Load from cloud page.",
+		pinned: "false"
 	}
 ]
 

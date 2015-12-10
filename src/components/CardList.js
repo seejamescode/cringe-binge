@@ -4,6 +4,7 @@ import Card from './Card';
 import "../sass/CardList.scss";
 
 export default class CardList extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {open: props.open};
@@ -29,7 +30,11 @@ export default class CardList extends React.Component {
     let cards = [];
 
     for (var i=0; i < this.props.source.length; i++) {
-      cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].title, this.props.source[i].description, i));
+      if (this.props.source[i].pinned === this.props.pinned) {
+        cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].title, this.props.source[i].description, i));
+      } else if (!this.props.pinned && this.props.source[i].pinned === false) {
+       cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].title, this.props.source[i].description, i));
+      }
     }
 
     return (

@@ -25,6 +25,11 @@ export class App extends Component {
       <div className="container--poseidon" style={{
         backgroundColor: '#fff'
       }}>
+        <h3>Pinned Updates</h3>
+        <CardList source={cards} pinned>
+        </CardList>
+
+        <h3>All Updates</h3>
         <CardList source={cards}>
         </CardList>
       </div>

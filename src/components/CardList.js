@@ -7,7 +7,16 @@ export default class CardList extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {open: props.open};
+    this.state = {
+      open: props.open,
+      largestHeight: 15
+    };
+  }
+
+  handleChange(id, value) {
+    if (value > this.state.largestHeight) {
+      this.setState({ largestHeight: value });
+    }
   }
 
   formatDate(date) {
@@ -22,8 +31,8 @@ export default class CardList extends React.Component {
     return properDate;
   }
 
-  getCard(date, img, title, description, key) {
-    return <Card date={this.formatDate(date)} img={img} title={title} description={description} key={key} />
+  getCard(date, img, title, description, key, largestHeight) {
+    return <Card date={this.formatDate(date)} img={img} title={title} description={description} onChange={this.handleChange.bind(this)} key={key} largestHeight={this.state.largestHeight} />
   }
 
   render() {

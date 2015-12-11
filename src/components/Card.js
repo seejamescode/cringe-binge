@@ -1,11 +1,30 @@
 import React from 'react';
 import Collapse from 'react-collapse';
+import _ from 'lodash';
+import { WindowResizeListener } from 'react-window-resize-listener'
 import "../sass/Card.scss";
 
 export default class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {open: false};
+  }
+
+  checkSize = _.throttle(() => {
+    if (this.refs.title) {
+      this.props.onChange(this.props.index, this.refs.title.clientHeight);
+    }
+  }, 30)
+
+  resize = _.throttle(() => {
+    if (this.refs.title && this.refs.title.clientHeight < this.props.largestHeight) {
+      this.refs.title.style.height =  this.props.largestHeight + 'px';
+    }
+  }, 60)
+
+  componentDidMount() {
+    setTimeout(() => this.checkSize(), 30);
+    setTimeout(() => this.resize(), 60);
   }
 
   handleClick = (e) => {
@@ -32,7 +51,11 @@ export default class Card extends React.Component {
           maxWidth: '450px',
           position: 'relative'
         }}>
-        <button type="button" className='card__tile'  onClick={this.handleClick} style={{
+        <WindowResizeListener onResize={windowSize => {
+          this.checkSize();
+          this.resize();
+        }}/>
+        <button type="button" className='card__tile' onClick={this.handleClick} style={{
             border: 'none',
             padding: '2em 2em 0 2em',
             textAlign: 'left',
@@ -49,7 +72,7 @@ export default class Card extends React.Component {
               height: '4em',
               width: '4em'
             }} />
-          <h3>{this.props.title}</h3>
+          <h3 className='card__tile__title' ref='title'>{this.props.title}</h3>
           <div style={{
                 marginTop: '1em'
               }}>

@@ -17,7 +17,7 @@ import {
 } from '../bower_components/ap-components-react/dist/ap-components-react.js';
 
 import CardList from './components/CardList';
-var cards = require("./cards.json");
+var cards = require('./cards.json');
 
 export class App extends Component {
   render() {

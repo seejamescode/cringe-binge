@@ -23,15 +23,15 @@ export default class Card extends React.Component {
     } else {
       this.refs.title.style.height = 'initial';
     }
-  }, 30)
+  }, 60)
 
   checkSize = _.throttle(() => {
     this.props.onChange(this.props.index, this.refs.titleHeight.clientHeight);
-    this.resize()
-  }, 30)
+    setTimeout(() => this.resize(), 60);
+  }, 60)
 
   componentDidMount() {
-    this.checkSize();
+    setTimeout(() => this.checkSize(), 30);
   }
 
   handleClick = (e) => {
@@ -79,7 +79,9 @@ export default class Card extends React.Component {
               height: '4em',
               width: '4em'
             }} />
-          <div ref='title'>
+          <div ref='title' style={{
+              overflow: 'hidden'
+            }}>
             <h3 className='card__tile__title' ref='titleHeight' style={{
                 color: '#474647',
                 fontSize: '1.5em',

@@ -9,13 +9,41 @@ export default class CardList extends React.Component {
     super(props);
     this.state = {
       open: props.open,
+      heightArray: [],
       largestHeight: 15
     };
   }
 
   handleChange(id, value) {
-    if (value > this.state.largestHeight) {
-      this.setState({ largestHeight: value });
+    const heightArray = this.state.heightArray
+    heightArray[id] = value;
+    this.setState({ heightArray : heightArray});
+
+    let heightMatch = false;
+    let heightLarger = false;
+    let largest = Math.max.apply(Math, this.state.heightArray);
+    for (var i = 0; i < this.state.heightArray.length; i++) {
+      if (this.state.heightArray[i] === this.state.largestHeight) {
+        heightMatch = true;
+      } else if (this.state.heightArray[i] > this.state.largestHeight) {
+        heightLarger = true;
+      }
+    }
+
+    if (heightMatch === false) {
+      for (var i = 0; i < this.state.heightArray.length; i++) {
+        if (this.state.heightArray[i] === largest) {
+          this.setState({ largestHeight: value });
+        }
+      }
+    }
+
+    if (heightLarger === true) {
+      for (var i = 0; i < this.state.heightArray.length; i++) {
+        if (this.state.heightArray[i] > this.state.largestHeight) {
+          this.setState({ largestHeight: value });
+        }
+      }
     }
   }
 
@@ -32,7 +60,7 @@ export default class CardList extends React.Component {
   }
 
   getCard(date, img, title, description, key, largestHeight) {
-    return <Card date={this.formatDate(date)} img={img} title={title} description={description} onChange={this.handleChange.bind(this)} key={key} largestHeight={this.state.largestHeight} />
+    return <Card date={this.formatDate(date)} img={img} title={title} description={description} onChange={this.handleChange.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} />
   }
 
   render() {

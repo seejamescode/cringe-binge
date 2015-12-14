@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapse from 'react-collapse';
+import EventListener from 'react-event-listener';
 import _ from 'lodash';
 import { WindowResizeListener } from 'react-window-resize-listener'
 import "../sass/Card.scss";
@@ -10,21 +11,27 @@ export default class Card extends React.Component {
     this.state = {open: false};
   }
 
-  checkSize = _.throttle(() => {
-    if (this.refs.title) {
-      this.props.onChange(this.props.index, this.refs.title.clientHeight);
+  listeners: {
+    window: {
+      resize: 'checkSize',
+    }
+  }
+
+  resize = _.throttle(() => {
+    if (window.innerWidth > 768) {
+      this.refs.title.style.height =  this.props.largestHeight + 'px';
+    } else {
+      this.refs.title.style.height = 'initial';
     }
   }, 30)
 
-  resize = _.throttle(() => {
-    if (this.refs.title && this.refs.title.clientHeight < this.props.largestHeight) {
-      this.refs.title.style.height =  this.props.largestHeight + 'px';
-    }
-  }, 60)
+  checkSize = _.throttle(() => {
+    this.props.onChange(this.props.index, this.refs.titleHeight.clientHeight);
+    this.resize()
+  }, 30)
 
   componentDidMount() {
-    setTimeout(() => this.checkSize(), 30);
-    setTimeout(() => this.resize(), 60);
+    this.checkSize();
   }
 
   handleClick = (e) => {
@@ -61,8 +68,8 @@ export default class Card extends React.Component {
             textAlign: 'left',
             width: '100%'
           }}>
-          <p style={{
-              color: '#999',
+          <p className='card__tile__date' style={{
+              color: '#474647',
               marginTop: 0
             }}>
             {this.props.date}
@@ -72,13 +79,23 @@ export default class Card extends React.Component {
               height: '4em',
               width: '4em'
             }} />
-          <h3 className='card__tile__title' ref='title'>{this.props.title}</h3>
+          <div ref='title'>
+            <h3 className='card__tile__title' ref='titleHeight' style={{
+                color: '#474647',
+                fontSize: '1.5em',
+                fontWeight: 500,
+                lineHeight: 1.5
+              }}>
+              {this.props.title}
+            </h3>
+          </div>
           <div style={{
                 marginTop: '1em'
               }}>
             <Collapse isOpened={this.state.open} springConfig={[300, 20]}>
               <p ref="description" className='card__tile__description' style={{
-                  paddingBottom: '2em'
+                  paddingBottom: '2em',
+                  color: '#474647'
                 }}>
                 {this.props.description}
               </p>

@@ -23,8 +23,8 @@ export class App extends Component {
   render() {
     return (
       <div className="container--poseidon" style={{
-        backgroundColor: '#fff'
-      }}>
+          backgroundColor: '#fff'
+        }}>
         <h3>Pinned Updates</h3>
         <CardList source={cards} pinned>
         </CardList>

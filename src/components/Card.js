@@ -64,7 +64,7 @@ export default class Card extends React.Component {
         }}/>
         <button type="button" className='card__tile' onClick={this.handleClick} style={{
             border: 'none',
-            padding: '2em 2em 0 2em',
+            padding: '2em 2em 1em 2em',
             textAlign: 'left',
             width: '100%'
           }}>

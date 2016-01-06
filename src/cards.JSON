@@ -11,14 +11,14 @@
 		"title": "Load open data",
 		"img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		"description": "Find publicly available data sets shared by government agencies, scientific organizations, and additional groups and load them into dashDB.",
-		"pinned": true
+		"pinned": false
 	},
 	{
 		"date": "10/22/2015",
 		"title": "Sync from Cloudant replaced by loading JSON from Cloudant.",
 		"img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		"description": "Sync from Cloudant has been removed from the web console. You can load data directly from a Cloudant account. See Load JSON from Cloudant database into dashDB.",
-		"pinned": true
+		"pinned": false
 	},
 	{
 		"date": "10/22/2015",
@@ -39,7 +39,7 @@
 		"title": "Import/export analytic models",
 		"img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		"description": "You now have the ability to export models from one database and then import them into another database. Previously, models could only be copied within the same database.",
-		"pinned": false
+		"pinned": true
 	},
 	{
 		"date": "09/28/2015",
@@ -74,7 +74,7 @@
 		"title": "Database conversion",
 		"img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		"description": "You can convert an Oracle database or an IBM PureData™ System for Analytics database to an IBM dashDB database. The IBM Database Conversion Workbench has been up\"date\"d to improve performance and user experience.",
-		"pinned": false
+		"pinned": true
 	},
 	{
 		"date": "07/31/2015",

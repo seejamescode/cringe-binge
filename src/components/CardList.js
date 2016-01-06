@@ -59,8 +59,8 @@ export default class CardList extends React.Component {
     return properDate;
   }
 
-  getCard(date, img, title, description, key) {
-    return <Card date={this.formatDate(date)} img={img} title={title} description={description} onChange={this.handleChange.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} />
+  getCard(date, img, pinned, title, description, key) {
+    return <Card date={this.formatDate(date)} img={img} pinned={pinned} title={title} description={description} onChange={this.handleChange.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} />
   }
 
   render() {
@@ -69,10 +69,10 @@ export default class CardList extends React.Component {
 
     for (var i=0; i < this.props.source.length; i++) {
       currentCard = cards.length;
-      if (this.props.source[i].pinned === this.props.pinned) {
-        cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].title, this.props.source[i].description, currentCard));
-      } else if (!this.props.pinned && this.props.source[i].pinned === false) {
-       cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].title, this.props.source[i].description, currentCard));
+      if (this.props.pinned && this.props.source[i].pinned === this.props.pinned) {
+        cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard));
+      } else if (!this.props.pinned) {
+       cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard));
       }
     }
 

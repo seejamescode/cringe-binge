@@ -5,6 +5,8 @@ import _ from 'lodash';
 import { WindowResizeListener } from 'react-window-resize-listener'
 import "../sass/Card.scss";
 
+var cx = require('classnames');
+
 export default class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -51,6 +53,10 @@ export default class Card extends React.Component {
     const toggleDescriptionHeight = this.state.open
       ? {height: this.props.descriptionHeight}
       : {height: this.props.descriptionHeight}
+
+    const pinnedClassName = cx('card__pin', {
+      'card__pin--pinned': this.props.pinned
+    });
 
     return (
       <div className="card" style={{
@@ -104,7 +110,7 @@ export default class Card extends React.Component {
             </Collapse>
           </div>
         </button>
-        <button type="button" className='card__pin' style={{
+        <button type="button" className={pinnedClassName} style={{
             backgroundColor: 'transparent',
             border: 'none',
             bottom: '0',

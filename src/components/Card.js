@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Collapse from 'react-collapse';
 import EventListener from 'react-event-listener';
 import _ from 'lodash';
@@ -8,6 +8,10 @@ import "../sass/Card.scss";
 var cx = require('classnames');
 
 export default class Card extends React.Component {
+  static propTypes = {
+    togglePin: PropTypes.func.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {open: false};
@@ -45,6 +49,7 @@ export default class Card extends React.Component {
   }
 
   render() {
+    const {togglePin} = this.props;
 
     if (this.state.open) {
       this.handleClick;
@@ -109,7 +114,7 @@ export default class Card extends React.Component {
             </Collapse>
           </div>
         </button>
-        <button type="button" onClick={this.handlePin} className={pinnedClassName} style={{
+        <button type="button" onClick={() => togglePin(this.props.id)} className={pinnedClassName} style={{
             backgroundColor: 'transparent',
             border: 'none',
             bottom: '0',

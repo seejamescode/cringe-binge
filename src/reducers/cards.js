@@ -1,9 +1,19 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO, MARK_ALL, CLEAR_MARKED } from '../constants/ActionTypes';
+import { TOGGLE_PIN, ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO, MARK_ALL, CLEAR_MARKED } from '../constants/ActionTypes';
 
 const initialState = require('../cards.json');
+initialState.forEach(function (e, id) {
+    e.id = id;
+});
 
 export default function cards(state = initialState, action) {
   switch (action.type) {
+  case TOGGLE_PIN:
+    return state.map(card =>
+      card.id === action.id ?
+        { ...card, pinned: !card.pinned } :
+        card
+    );
+
   case ADD_TODO:
     return [{
       id: (state.length === 0) ? 0 : state[0].id + 1,

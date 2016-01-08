@@ -31,12 +31,10 @@ export class App extends Component {
           backgroundColor: '#fff'
         }}>
         <p>Pinned Updates</p>
-        <CardList source={cards} pinned>
-        </CardList>
+        <CardList source={cards} actions={actions} pinned />
 
         <p>All Updates</p>
-        <CardList source={cards}>
-        </CardList>
+        <CardList source={cards} actions={actions} />
       </div>
     );
   }

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Card from './Card';
 
 import "../sass/CardList.scss";
 
 export default class CardList extends React.Component {
+  static propTypes = {
+    actions: PropTypes.object.isRequired
+  };
 
   constructor(props) {
     super(props);
@@ -65,20 +68,21 @@ export default class CardList extends React.Component {
     return properDate;
   }
 
-  getCard(date, img, pinned, title, description, key) {
-    return <Card date={this.formatDate(date)} img={img} pinned={pinned} title={title} description={description} onHeightChange={this.handleHeight.bind(this)} onPinChange={this.handlePinned.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} />
+  getCard(id, date, img, pinned, title, description, key, actions) {
+    return <Card id={id} date={this.formatDate(date)} img={img} pinned={pinned} title={title} description={description} onHeightChange={this.handleHeight.bind(this)} onPinChange={this.handlePinned.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} {...actions} />
   }
 
   render() {
     let cards = [];
     let currentCard;
+    const { actions } = this.props;
 
     for (var i=0; i < this.props.source.length; i++) {
       currentCard = cards.length;
       if (this.props.pinned && this.props.source[i].pinned === this.props.pinned) {
-        cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard));
+        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard, actions));
       } else if (!this.props.pinned) {
-       cards.push(this.getCard(this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard));
+        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard, actions));
       }
     }
 

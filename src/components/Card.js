@@ -28,7 +28,7 @@ export default class Card extends React.Component {
   }, 60)
 
   checkSize = _.throttle(() => {
-    this.props.onChange(this.props.index, this.refs.titleHeight.clientHeight);
+    this.props.onHeightChange(this.props.index, this.refs.titleHeight.clientHeight);
     setTimeout(() => this.resize(), 60);
   }, 60)
 
@@ -40,15 +40,15 @@ export default class Card extends React.Component {
     this.setState({ open: !this.state.open });
   }
 
+  handlePin = () => {
+    this.props.onPinChange(this.props.index, !this.props.pinned);
+  }
+
   render() {
 
     if (this.state.open) {
       this.handleClick;
     }
-
-    const togglePinned = this.props.pinned
-      ? 'card__pin card__pin--pinned'
-      : 'card__pin'
 
     const toggleDescriptionHeight = this.state.open
       ? {height: this.props.descriptionHeight}
@@ -90,7 +90,6 @@ export default class Card extends React.Component {
             }}>
             <h3 className='card__tile__title' ref='titleHeight' style={{
                 color: '#474647',
-                fontSize: '1.5em',
                 fontWeight: 500,
                 lineHeight: 1.5
               }}>
@@ -110,7 +109,7 @@ export default class Card extends React.Component {
             </Collapse>
           </div>
         </button>
-        <button type="button" className={pinnedClassName} style={{
+        <button type="button" onClick={this.handlePin} className={pinnedClassName} style={{
             backgroundColor: 'transparent',
             border: 'none',
             bottom: '0',

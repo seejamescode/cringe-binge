@@ -25,7 +25,7 @@
 		"title": "Improved SQL cross-product compatibility",
 		"img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150",
 		"description": "- Migrate tables exceeding 32K - Use a FROM clause with the UP\"date\" statement to up\"date\" columns in a target table using values from one or more other tables. Previously, to accomplish this kind of inner join, you had to use the MERGE statement.",
-		"pinned": true
+		"pinned": false
 	},
 	{
 		"date": "10/22/2015",

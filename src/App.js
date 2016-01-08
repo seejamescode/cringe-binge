@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { togglePin } from './actions'
 import "./sass/Container.scss";
+import * as CardActions from './actions/CardActions';
+
+import CardList from './components/CardList';
 
 import {
   Breadcrumb,
@@ -16,11 +22,10 @@ import {
   ToggleButton
 } from '../bower_components/ap-components-react/dist/ap-components-react.js';
 
-import CardList from './components/CardList';
-var cards = require('./cards.json');
-
 export class App extends Component {
   render() {
+    const { cards, actions } = this.props;
+
     return (
       <div className="container--poseidon" style={{
           backgroundColor: '#fff'
@@ -36,3 +41,17 @@ export class App extends Component {
     );
   }
 }
+
+function mapState(state) {
+  return {
+    cards: state.cards
+  };
+}
+
+function mapDispatch(dispatch) {
+  return {
+    actions: bindActionCreators(CardActions, dispatch)
+  };
+}
+
+export default connect(mapState, mapDispatch)(App);

@@ -14,7 +14,7 @@ export default class CardList extends React.Component {
     };
   }
 
-  handleChange(id, value) {
+  handleHeight(id, value) {
     const heightArray = this.state.heightArray
     heightArray[id] = value;
     this.setState({ heightArray : heightArray});
@@ -47,6 +47,12 @@ export default class CardList extends React.Component {
     }
   }
 
+  handlePinned(id, value) {
+    console.log('handled' + value);
+    console.log(this.props.source[id]);
+    this.props.source[id].pinned = value;
+  }
+
   formatDate(date) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -60,7 +66,7 @@ export default class CardList extends React.Component {
   }
 
   getCard(date, img, pinned, title, description, key) {
-    return <Card date={this.formatDate(date)} img={img} pinned={pinned} title={title} description={description} onChange={this.handleChange.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} />
+    return <Card date={this.formatDate(date)} img={img} pinned={pinned} title={title} description={description} onHeightChange={this.handleHeight.bind(this)} onPinChange={this.handlePinned.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} />
   }
 
   render() {

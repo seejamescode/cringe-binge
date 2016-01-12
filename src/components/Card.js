@@ -9,7 +9,8 @@ var cx = require('classnames');
 
 export default class Card extends React.Component {
   static propTypes = {
-    togglePin: PropTypes.func.isRequired
+    togglePin: PropTypes.func.isRequired,
+    toggleTop: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -29,27 +30,23 @@ export default class Card extends React.Component {
     } else {
       this.refs.title.style.height = 'initial';
     }
-  }, 60)
+  }, 20)
 
   checkSize = _.throttle(() => {
     this.props.onHeightChange(this.props.index, this.refs.titleHeight.clientHeight);
-    setTimeout(() => this.resize(), 60);
-  }, 60)
+    setTimeout(() => this.resize(), 20);
+  }, 20)
 
   componentDidMount() {
-    setTimeout(() => this.checkSize(), 30);
+    setTimeout(() => this.checkSize(), 10);
   }
 
   handleClick = (e) => {
     this.setState({ open: !this.state.open });
   }
 
-  handlePin = () => {
-    this.props.onPinChange(this.props.index, !this.props.pinned);
-  }
-
   render() {
-    const {togglePin} = this.props;
+    const {togglePin, toggleTop} = this.props;
 
     if (this.state.open) {
       this.handleClick;
@@ -59,9 +56,13 @@ export default class Card extends React.Component {
       ? {height: this.props.descriptionHeight}
       : {height: this.props.descriptionHeight}
 
-    const pinnedClassName = cx('card__pin', {
-      'card__pin--pinned': this.props.pinned
+    const topClassName = cx('card__top', {
+      'card__top--true': this.props.top
     });
+
+    const pinFill = this.props.pinned
+      ? {fill: '#178ac5'}
+      : {fill: '#777677'}
 
     return (
       <div className="card" style={{
@@ -114,21 +115,47 @@ export default class Card extends React.Component {
             </Collapse>
           </div>
         </button>
-        <button type="button" onClick={() => togglePin(this.props.id)} className={pinnedClassName} style={{
-            backgroundColor: 'transparent',
-            border: 'none',
-            bottom: '0',
-            padding: '0',
-            position: 'absolute',
-            right: '0'
+        <div style={{
+            borderTop: '1px solid #E0E0E0',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            margin: '0 5px'
           }}>
-          <div className="card__pin__triangle" style={{
-              width: 0,
-              height: 0,
-              borderStyle: 'solid',
-              borderWidth: '0 0 3em 3em'
-            }} />
-        </button>
+          <button type="button" onClick={() => toggleTop(this.props.id)} className={topClassName} style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+              display: 'flex',
+              height: '1em',
+              margin: '1em',
+              padding: '0'
+            }}>
+            <svg viewBox="0 0 32 32" style={{
+                height: '1em'
+              }}>
+              <g>
+                <polygon fill="#777677" points="11.2,21.5 3.4,13.7 0,17 11.2,28.3 32,7.5 28.6,4.1 "/>
+              </g>
+            </svg>
+          </button>
+          <button type="button" onClick={() => togglePin(this.props.id)} style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+              display: 'flex',
+              height: '1em',
+              margin: '1em',
+              padding: '0'
+            }}>
+            <svg viewBox="0 0 32 32" style={{
+                height: '1em'
+              }}>
+              <g>
+                <path style={pinFill} d="M21.1,10.3L23.5,0H16H8.5l2.4,10.3c-2.5,1.4-4.4,3.7-5.2,6.5h6.8h7.1h0h6.7C25.5,14,23.6,11.6,21.1,10.3z" />
+                <polygon style={pinFill} points="12.7,18.1 16,32 19.3,18.1" />
+              </g>
+            </svg>
+          </button>
+        </div>
       </div>
     );
   }

@@ -6,3 +6,17 @@ export function togglePin(id) {
     id
   };
 }
+
+export function toggleTop(id) {
+  return {
+    type: types.TOGGLE_TOP,
+    id
+  };
+}
+
+export function changeCardView(cardView) {
+  return {
+    type: types.CHANGE_CARDVIEW,
+    cardView
+  };
+}

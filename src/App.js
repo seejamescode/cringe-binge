@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { togglePin } from './actions'
+import { togglePin, toggleTop, changeCardView } from './actions'
 import "./sass/Container.scss";
 import * as CardActions from './actions/CardActions';
 
-import CardList from './components/CardList';
+import Nav from './components/Nav';
+import CardView from './components/CardView';
 
 import {
   Breadcrumb,
@@ -24,17 +25,14 @@ import {
 
 export class App extends Component {
   render() {
-    const { cards, actions } = this.props;
+    const { cards, cardView, actions } = this.props;
 
     return (
       <div className="container--poseidon" style={{
           backgroundColor: '#fff'
         }}>
-        <p>Pinned Updates</p>
-        <CardList source={cards} actions={actions} pinned />
-
-        <p>All Updates</p>
-        <CardList source={cards} actions={actions} />
+        <Nav changeCardView={actions.changeCardView} />
+        <CardView cardView={cardView} cards={cards} actions={actions} />
       </div>
     );
   }
@@ -42,7 +40,8 @@ export class App extends Component {
 
 function mapState(state) {
   return {
-    cards: state.cards
+    cards: state.cards,
+    cardView: state.cardView
   };
 }
 

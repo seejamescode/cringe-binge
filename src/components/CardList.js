@@ -50,12 +50,6 @@ export default class CardList extends React.Component {
     }
   }
 
-  handlePinned(id, value) {
-    console.log('handled' + value);
-    console.log(this.props.source[id]);
-    this.props.source[id].pinned = value;
-  }
-
   formatDate(date) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -68,8 +62,8 @@ export default class CardList extends React.Component {
     return properDate;
   }
 
-  getCard(id, date, img, pinned, title, description, key, actions) {
-    return <Card id={id} date={this.formatDate(date)} img={img} pinned={pinned} title={title} description={description} onHeightChange={this.handleHeight.bind(this)} onPinChange={this.handlePinned.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} {...actions} />
+  getCard(id, date, img, pinned, title, top, description, key, actions) {
+    return <Card id={id} date={this.formatDate(date)} img={img} pinned={pinned} top={top} title={title} description={description} onHeightChange={this.handleHeight.bind(this)} key={key} index={key} largestHeight={this.state.largestHeight} {...actions} />
   }
 
   render() {
@@ -79,10 +73,12 @@ export default class CardList extends React.Component {
 
     for (var i=0; i < this.props.source.length; i++) {
       currentCard = cards.length;
-      if (this.props.pinned && this.props.source[i].pinned === this.props.pinned) {
-        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard, actions));
-      } else if (!this.props.pinned) {
-        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].description, currentCard, actions));
+      if (this.props.top && this.props.source[i].top === this.props.top) {
+        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].top, this.props.source[i].description, currentCard, actions));
+      } else if (!this.props.top && this.props.pinned && this.props.source[i].pinned === this.props.pinned) {
+        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].top, this.props.source[i].description, currentCard, actions));
+      } else if (!this.props.top && !this.props.pinned) {
+        cards.push(this.getCard(this.props.source[i].id, this.props.source[i].date, this.props.source[i].img, this.props.source[i].pinned, this.props.source[i].title, this.props.source[i].top, this.props.source[i].description, currentCard, actions));
       }
     }
 

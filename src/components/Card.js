@@ -125,7 +125,6 @@ export default class Card extends React.Component {
           <button type="button" onClick={() => toggleTop(this.props.id)} className={topClassName} style={{
               backgroundColor: 'transparent',
               border: 'none',
-              display: 'flex',
               height: '1em',
               margin: '1em',
               padding: '0'

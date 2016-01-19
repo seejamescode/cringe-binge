@@ -60,6 +60,10 @@ export default class Card extends React.Component {
       'card__top--true': this.props.top
     });
 
+    const tileClassName = cx('card__tile', {
+      'card__tile--open': this.state.open
+    });
+
     const pinFill = this.props.pinned
       ? {fill: '#178ac5'}
       : {fill: '#777677'}
@@ -74,12 +78,20 @@ export default class Card extends React.Component {
           this.checkSize();
           this.resize();
         }}/>
-        <button type="button" className='card__tile' onClick={this.handleClick} style={{
+        <button type="button" className={tileClassName} onClick={this.handleClick} style={{
             border: 'none',
             padding: '2em 2em 1em 2em',
             textAlign: 'left',
             width: '100%'
           }}>
+          <div className='card__tile__open' style={{
+              backgroundColor: '#178ac5',
+              height: '7px',
+              left: '-1px',
+              position: 'absolute',
+              top: '-1px',
+              width: 'calc(100% + 2px)'
+            }}/>
           <p className='card__tile__date' style={{
               color: '#474647',
               marginTop: 0

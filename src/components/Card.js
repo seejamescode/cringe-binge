@@ -64,9 +64,9 @@ export default class Card extends React.Component {
       'card__tile--open': this.state.open
     });
 
-    const pinFill = this.props.pinned
-      ? {fill: '#178ac5'}
-      : {fill: '#777677'}
+    const iconPinnedClassName = cx('card__icon', {
+      'card__icon--blue': this.props.pinned
+    });
 
     return (
       <div className="card" style={{
@@ -141,11 +141,11 @@ export default class Card extends React.Component {
               margin: '1em',
               padding: '0'
             }}>
-            <svg viewBox="0 0 32 32" style={{
+            <svg viewBox="0 0 32 32" className='card__icon' style={{
                 height: '1em'
               }}>
               <g>
-                <polygon fill="#777677" points="11.2,21.5 3.4,13.7 0,17 11.2,28.3 32,7.5 28.6,4.1 "/>
+                <polygon points="11.2,21.5 3.4,13.7 0,17 11.2,28.3 32,7.5 28.6,4.1 "/>
               </g>
             </svg>
           </button>
@@ -157,12 +157,12 @@ export default class Card extends React.Component {
               margin: '1em',
               padding: '0'
             }}>
-            <svg viewBox="0 0 32 32" style={{
+            <svg viewBox="0 0 32 32" className={iconPinnedClassName} style={{
                 height: '1em'
               }}>
               <g>
-                <path style={pinFill} d="M21.1,10.3L23.5,0H16H8.5l2.4,10.3c-2.5,1.4-4.4,3.7-5.2,6.5h6.8h7.1h0h6.7C25.5,14,23.6,11.6,21.1,10.3z" />
-                <polygon style={pinFill} points="12.7,18.1 16,32 19.3,18.1" />
+                <path d="M21.1,10.3L23.5,0H16H8.5l2.4,10.3c-2.5,1.4-4.4,3.7-5.2,6.5h6.8h7.1h0h6.7C25.5,14,23.6,11.6,21.1,10.3z" />
+                <polygon points="12.7,18.1 16,32 19.3,18.1" />
               </g>
             </svg>
           </button>

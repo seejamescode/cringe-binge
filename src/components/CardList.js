@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Card from './Card';
 
-import "../sass/CardList.scss";
+import '../sass/CardList.scss';
 
 export default class CardList extends React.Component {
   static propTypes = {
@@ -51,12 +51,12 @@ export default class CardList extends React.Component {
   }
 
   formatDate(date) {
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     let monthNumber = parseInt((date.substring(0, date.indexOf('/'))), 10);
-    let dayYearNumber = date.substring(date.indexOf("/") + 1);
+    let dayYearNumber = date.substring(date.indexOf('/') + 1);
     let dayNumber = dayYearNumber.substring(0, dayYearNumber.indexOf('/'));
-    let yearNumber = dayYearNumber.substring(dayYearNumber.indexOf("/") + 1);
+    let yearNumber = dayYearNumber.substring(dayYearNumber.indexOf('/') + 1);
 
     let properDate = months[monthNumber - 1] + ' ' + dayNumber + ', ' + yearNumber;
     return properDate;
@@ -83,7 +83,7 @@ export default class CardList extends React.Component {
     }
 
     return (
-      <div className="cardList">
+      <div className='cardList'>
         {cards}
       </div>
     );

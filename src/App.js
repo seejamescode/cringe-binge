@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { togglePin, toggleTop, changeCardView } from './actions'
-import "./sass/Container.scss";
+import './sass/Container.scss';
 import * as CardActions from './actions/CardActions';
 
 import Nav from './components/Nav';
@@ -28,7 +28,7 @@ export class App extends Component {
     const { cards, cardView, actions } = this.props;
 
     return (
-      <div className="container--poseidon" style={{
+      <div className='container--poseidon' style={{
           backgroundColor: '#fff'
         }}>
         <Nav changeCardView={actions.changeCardView} />

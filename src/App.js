@@ -18,11 +18,13 @@ export class App extends Component {
     const { cards, cardView, actions } = this.props;
 
     return (
+      <div>
       <div className='container--poseidon' style={{
           backgroundColor: '#fff'
         }}>
         <Nav changeCardView={actions.changeCardView} />
         <CardView cardView={cardView} cards={cards} actions={actions} />
+      </div>
       </div>
     );
   }

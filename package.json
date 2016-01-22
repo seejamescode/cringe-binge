@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A redesign for dashDB's current homepage.",
   "scripts": {
-    "build": "rimraf dist && NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "start": "node devServer.js",
     "lint": "eslint src"
   },

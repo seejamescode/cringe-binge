@@ -56,12 +56,12 @@ export default class Card extends React.Component {
       ? {height: this.props.descriptionHeight}
       : {height: this.props.descriptionHeight}
 
-    const topClassName = cx('card__top', {
-      'card__top--true': this.props.top
-    });
-
     const tileClassName = cx('card__tile', {
       'card__tile--open': this.state.open
+    });
+
+    const topClassName = cx('card__action card__top', {
+      'card__top--true': this.props.top
     });
 
     const iconPinnedClassName = cx('card__icon', {
@@ -134,7 +134,7 @@ export default class Card extends React.Component {
             justifyContent: 'flex-end',
             margin: '0 5px'
           }}>
-          <button type='button' onClick={() => toggleTop(this.props.id)} className={topClassName} style={{
+          <button type='button' title="Remove Top" onClick={() => toggleTop(this.props.id)} className={topClassName} style={{
               backgroundColor: 'transparent',
               border: 'none',
               height: '1em',
@@ -149,7 +149,7 @@ export default class Card extends React.Component {
               </g>
             </svg>
           </button>
-          <button type='button' onClick={() => togglePin(this.props.id)} style={{
+          <button type='button' className='card__action' title='Pin' onClick={() => togglePin(this.props.id)} style={{
               backgroundColor: 'transparent',
               border: 'none',
               display: 'flex',

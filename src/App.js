@@ -9,19 +9,9 @@ import Nav from './components/Nav';
 import CardView from './components/CardView';
 
 import {
-  Breadcrumb,
-  Button,
-  Checkbox,
-  Code,
-  Dropdown,
-  Hyperlink,
-  Icon,
-  RadioGroup,
-  ResponsiveTable,
-  Slider,
-  TextField,
-  ToggleButton
+  Dropdown
 } from '../bower_components/ap-components-react/dist/ap-components-react.js';
+import '../bower_components/ap-components-react/dist/ap-components-react.min.css';
 
 export class App extends Component {
   render() {

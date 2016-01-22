@@ -68,6 +68,8 @@ export default class Card extends React.Component {
       'card__icon--blue': this.props.pinned
     });
 
+    const buttonTitle = this.props.title + ', ' + this.props.date;
+
     return (
       <div className='card' style={{
           display: 'inline-block',
@@ -78,7 +80,7 @@ export default class Card extends React.Component {
           this.checkSize();
           this.resize();
         }}/>
-        <button type='button' className={tileClassName} onClick={this.handleClick} style={{
+        <button type='button' title={buttonTitle} className={tileClassName} onClick={this.handleClick} style={{
             border: 'none',
             padding: '2em 2em 1em 2em',
             textAlign: 'left',

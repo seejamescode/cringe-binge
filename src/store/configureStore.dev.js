@@ -1,9 +1,11 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
+import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import DevTools from '../DevTools';
 
 const finalCreateStore = compose(
+  applyMiddleware(thunk),
   DevTools.instrument(),
   persistState(
     window.location.href.match(

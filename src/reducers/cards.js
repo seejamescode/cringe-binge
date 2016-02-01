@@ -1,4 +1,4 @@
-import { TOGGLE_PIN, TOGGLE_TOP } from '../constants/ActionTypes';
+import { TOGGLE_PIN, TOGGLE_TOP } from '../constants/CardActionTypes';
 
 const initialState = require('../cards.json');
 initialState.forEach(function (e, id) {

@@ -1,4 +1,4 @@
-import { CHANGE_CARDVIEW } from '../constants/ActionTypes';
+import { CHANGE_CARDVIEW } from '../constants/CardViewActionTypes';
 
 const initialState = 'updates';
 

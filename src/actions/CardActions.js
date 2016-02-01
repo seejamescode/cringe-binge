@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants/CardActionTypes';
 
 export function togglePin(id) {
   return {
@@ -11,12 +11,5 @@ export function toggleTop(id) {
   return {
     type: types.TOGGLE_TOP,
     id
-  };
-}
-
-export function changeCardView(cardView) {
-  return {
-    type: types.CHANGE_CARDVIEW,
-    cardView
   };
 }

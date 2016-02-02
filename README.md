@@ -22,10 +22,8 @@ git push origin [branch]
 git subtree push --prefix dist origin gh-pages
 ```
 
-### [React-Hot-Boilerplate](https://github.com/gaearon/react-hot-boilerplate) Resources
+### [React-Transform-Boilerplate](https://github.com/gaearon/react-transform-boilerplate) Resources
 
-* [Demo video](http://vimeo.com/100010922)
-* [react-hot-loader on Github](https://github.com/gaearon/react-hot-loader)
-* [Integrating JSX live reload into your workflow](http://gaearon.github.io/react-hot-loader/getstarted/)
-* [Troubleshooting guide](https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md)
+* [Intro to Redux](https://www.youtube.com/watch?v=xsSnOQynTHs)
+* [react-transfrom-hmr on Github](https://github.com/gaearon/react-transform-hmr)
 * Ping dan_abramov on Twitter or #reactjs IRC

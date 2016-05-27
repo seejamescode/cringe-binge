@@ -1,33 +1,34 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var definePlugin = new webpack.DefinePlugin({  
+  'process.env.NODE_ENV': JSON.stringify('production')
+});
+
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'eval',
   entry: [
+    'eventsource-polyfill', // necessary for hot reloading with IE
+    'webpack-hot-middleware/client',
     './src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/dist/'
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    })
+    definePlugin
   ],
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?/,
         loaders: ['babel'],
         include: path.join(__dirname, 'src')
       },

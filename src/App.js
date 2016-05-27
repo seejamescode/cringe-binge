@@ -1,39 +1,67 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import './sass/Container.scss';
-import * as CardActions from './actions/CardActions';
-import * as CardViewActions from './actions/CardViewActions';
+import './app.scss';
 import * as SearchActions from './actions/SearchActions';
+import * as ListActions from './actions/ListActions';
 
-import Nav from './components/Nav';
-import CardView from './components/CardView';
-
-import {
-  Dropdown
-} from '../bower_components/ap-components-react/dist/ap-components-react.js';
-import '../bower_components/ap-components-react/dist/ap-components-react.min.css';
+import AppBar from 'material-ui/lib/app-bar';
+import FlatButton from 'material-ui/lib/flat-button';
+import NavArrowDropDown from 'material-ui/lib/svg-icons/navigation/arrow-drop-down';
+import NavArrowDropUp from 'material-ui/lib/svg-icons/navigation/arrow-drop-up';
+import LinearProgress from 'material-ui/lib/linear-progress';
+import CardList from './components/cardlist/CardList';
+import WatchList from './components/watchList/WatchList';
 
 export class App extends Component {
 
-  searchPhoto(event) {
-    if (event.which === 13) {
-      this.props.actions.searchPhotoAction(event.target.value);
+  handleResize = (e) => {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      this.nextPage();
     }
   }
 
+  componentDidMount() {
+    this.props.actions.searchPhotoAction();
+    window.addEventListener('scroll', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleResize);
+  }
+
+  nextPage() {
+    this.props.actions.searchNextPageAction();
+  }
+
+  handleOpen = () => {
+    this.props.actions.toggleOpen(true);
+  };
+
   render() {
-    const { cards, cardView, actions } = this.props;
+    const { list, results, actions } = this.props;
 
     return (
       <div>
-      <div className='container--poseidon' style={{
-          backgroundColor: '#fff'
-        }}>
-        <input onKeyDown={this.searchPhoto.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="Nature, Sky, Aurora... + Enter" />
-        <Nav changeCardView={actions.changeCardView} />
-        <CardView cardView={cardView} cards={cards} actions={actions} />
-      </div>
+        <AppBar
+            title="Cringe Binge"
+            showMenuIconButton={false}
+            iconElementRight={<FlatButton label={list.movies.length + ' cringes'} onClick={this.handleOpen.bind()} />}
+            style={{position: 'fixed'}}
+          />
+        <div style={{
+            backgroundColor: '#fff',
+            paddingTop: '64px'
+          }}>
+          <WatchList open={list.open} movies={list.movies} query={list.query} addMovie={actions.addMovie} toggleOpen={actions.toggleOpen}>
+            <CardList movies={list.movies} list={list.movies} removeMovie={actions.removeMovie} addMovie={actions.addMovie} />
+          </WatchList>
+          <CardList movies={results.movies} list={list.movies} removeMovie={actions.removeMovie} addMovie={actions.addMovie} />
+          <LinearProgress mode="indeterminate" style={{
+            margin: '2rem',
+            width: 'calc(100% - 4rem)'
+          }} />
+        </div>
       </div>
     );
   }
@@ -41,14 +69,14 @@ export class App extends Component {
 
 function mapState(state) {
   return {
-    cards: state.cards,
-    cardView: state.cardView
+    list: state.list,
+    results: state.results
   };
 }
 
 function mapDispatch(dispatch) {
   return {
-    actions: bindActionCreators({ ...CardActions, ...CardViewActions, ...SearchActions }, dispatch)
+    actions: bindActionCreators({...ListActions, ...SearchActions}, dispatch)
   };
 }
 

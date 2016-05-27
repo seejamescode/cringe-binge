@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
-import cards from './cards';
-import cardView from './cardView';
-import { default as photos } from './photos';
+import list from './list';
+import results from './results';
 
 const rootReducer = combineReducers({
-  cards,
-  cardView,
-  photos
+  list,
+  results
 });
 
 export default rootReducer;

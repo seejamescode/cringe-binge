@@ -1,0 +1,63 @@
+.dialog {
+
+  @media (max-width: 767px) {
+    position: fixed !important;
+    top: -6rem;
+    left: 1%;
+    width: 98% !important;
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+
+.watchList {
+  max-height: initial !important;
+  overflow-y: scroll;
+  position: relative;
+
+  .watchList__movies {
+    overflow-x: scroll;
+    padding-top: 1rem;
+
+    .cardList {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+
+      .cardList__card {
+        margin: 1rem;
+        min-width: 166.67px;
+        max-width: 166.67px;
+        width: 250px;
+
+        > div {
+          display: initial;
+
+          .card__info {
+            display: initial;
+            height: initial;
+          }
+        }
+
+        .card__poster {
+          background: #eee;
+          height: 250px;
+          width: 166.67px;
+        }
+
+        .card__title {
+          max-width: 100%;
+          overflow: visible;
+        }
+
+        .card__add {
+          display: inline-block !important;
+          margin-right: 1%;
+        }
+
+        .card__mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}

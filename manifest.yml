@@ -1,0 +1,8 @@
+---
+applications:
+- name: cringe-binge-app
+  command: npm run prod
+  host: cringe-binge
+  dist_quota: 512M
+  instances: 1
+  memory: 512M

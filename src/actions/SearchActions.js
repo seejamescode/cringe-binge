@@ -1,7 +1,7 @@
 import * as types from '../constants/SearchActionTypes';
-import photoSearch from '../api/PhotoSearch';
+import { infamousMovieSearch } from '../api/MovieSearch';
 
-function searchWithPhotoAPI(keyword, page, dispatch) {
+function searchWithMovieAPI(page, dispatch) {
   if (page >= 2) {
     dispatch({
       type: types.SEARCH_PENDING_FOR_NEXT,
@@ -12,26 +12,24 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
     });
   }
 
-  photoSearch(keyword, page, (data) => {
+  infamousMovieSearch(page, (data) => {
     dispatch({
       type: types.SEARCH_DONE,
-      photos: data.photos,
-      page,
-      keyword,
+      movies: data.results,
+      page
     });
   });
 }
 
 export function searchNextPageAction() {
-  return (dispatch, getState) =>{
-    const page = getState().photos.page + 1;
-    const keyword = getState().photos.keyword;
-    searchWithPhotoAPI(keyword, page, dispatch);
+  return (dispatch, getState) => {
+    const page = getState().results.page + 1;
+    searchWithMovieAPI(page, dispatch);
   };
 }
 
-export function searchPhotoAction(keyword, page = 1) {
+export function searchPhotoAction(page = 1) {
   return (dispatch) => {
-    searchWithPhotoAPI(keyword, page, dispatch);
+    searchWithMovieAPI(page, dispatch);
   };
 }

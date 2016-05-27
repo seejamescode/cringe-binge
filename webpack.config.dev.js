@@ -1,8 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var devFlagPlugin = new webpack.DefinePlugin({  
-  __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+var definePlugin = new webpack.DefinePlugin({  
+  'process.env.NODE_ENV': JSON.stringify('development')
 });
 
 module.exports = {
@@ -20,7 +20,10 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    devFlagPlugin
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
+    definePlugin
   ],
   module: {
     loaders: [

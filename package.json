@@ -1,21 +1,17 @@
 {
-  "name": "poseidon-home",
+  "name": "redux-presentation",
   "version": "0.0.1",
-  "description": "A redesign for dashDB's current homepage.",
+  "description": "Do not know yet.",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "start": "node devServer.js",
+    "prod": "NODE_ENV='production' node server",
+    "start": "node server.js",
     "lint": "eslint src"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.ibm.com/dashdb/poseidon-home.git"
+    "type": "git"
   },
-  "author": "James Rauhut <jamesrauhut@us.ibm.com> (https://github.ibm.com/jamesrauhut)",
-  "bugs": {
-    "url": "https://github.ibm.com/dashdb/poseidon-home/issues"
-  },
-  "homepage": "https://github.ibm.com/dashdb/poseidon-homepage-redesign",
+  "author": "James Rauhut <jamesrauhut@gmail.com> (https://github.com/yepnamesjames)",
+  "homepage": "",
   "devDependencies": {
     "babel-core": "^6.3.15",
     "babel-eslint": "^5.0.0-beta4",
@@ -28,6 +24,7 @@
     "css-loader": "^0.23.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^2.3.0",
+    "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
     "json-loader": "^0.5.4",
@@ -43,21 +40,34 @@
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.0.0"
+    "webpack-hot-middleware": "2.7.1"
   },
   "dependencies": {
-    "eventsource-polyfill": "^0.9.6",
+    "body-parser": "^1.15.0",
+    "cfenv": "^1.0.3",
+    "cors": "^2.7.1",
+    "dotenv": "^2.0.0",
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.6.5",
     "lodash": "^3.10.1",
+    "material-ui": "^0.15.0-alpha.1",
+    "moviedb": "^0.2.3",
+    "node-fetch": "^1.4.1",
     "react": "^0.14.3",
     "react-collapse": "^1.4.0",
     "react-dimensions": "^1.0.0",
     "react-dom": "^0.14.3",
     "react-event-listener": "^0.0.2",
     "react-height": "^2.0.3",
+    "react-infinite-scroll": "^0.1.5",
     "react-motion": "^0.3.1",
     "react-redux": "^4.0.6",
+    "react-router-redux": "^4.0.0",
+    "react-tap-event-plugin": "^0.2.2",
     "react-window-resize-listener": "^1.0.0",
     "redux": "^3.0.5",
-    "redux-thunk": "^1.0.3"
+    "redux-api-middleware": "^1.0.1",
+    "redux-thunk": "^1.0.3",
+    "request": "^2.72.0"
   }
 }

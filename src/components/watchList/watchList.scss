@@ -2,10 +2,10 @@
 
   @media (max-width: 767px) {
     position: fixed !important;
-    top: -6rem;
-    left: 1%;
-    width: 98% !important;
-    height: 100%;
+    top: -2.5%;
+    left: 5%;
+    width: 90% !important;
+    height: 90%;
     overflow-y: scroll;
   }
 }
@@ -13,15 +13,15 @@
 .watchList {
   max-height: initial !important;
   overflow-y: scroll;
-  position: relative;
+  padding: 0 !important;
 
   .watchList__movies {
-    overflow-x: scroll;
-    padding-top: 1rem;
+    padding-top: 3rem;
 
     .cardList {
       flex-wrap: nowrap;
       justify-content: flex-start;
+      width: calc(100% + 4rem);
 
       .cardList__card {
         margin: 1rem;
@@ -40,7 +40,7 @@
 
         .card__poster {
           background: #eee;
-          height: 250px;
+          height: 150px;
           width: 166.67px;
         }
 
@@ -56,6 +56,10 @@
 
         .card__mobile {
           display: none;
+        }
+
+        &:nth-last-child(1) {
+          margin-right: 5rem;
         }
       }
     }

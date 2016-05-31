@@ -126,7 +126,12 @@ export default class WatchList extends React.Component {
             contentClassName='dialog'
             bodyClassName='watchList'
           >
-            {this.props.movies.length} movies | {time}
+            <div style={{
+              paddingLeft: '24px',
+              position: 'absolute'
+            }}>
+              {this.props.movies.length} movies | {time}
+            </div>
             <div className='watchList__movies'>
               {this.props.movies.length > 0 ? this.props.children : <div style={{display: 'flex', justifyContent: 'center', padding: '2rem'}}>No cringe-worthy movies have been added to your cringelist yet!</div>}
             </div>

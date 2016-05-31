@@ -5,75 +5,46 @@
 
   .cardList__card {
     margin: 1rem;
-    width: calc(100% - 4rem);
+    width: 200px;
 
-    > div {
-      display: flex;
-      flex-wrap: wrap;
-
-      .card__info {
-        display: flex;
-        flex-wrap: wrap;
+      .card__poster {
+        background: #eee;
         height: 200px;
+        overflow: hidden;
+        width: 100%;
+
+        .poster__image {
+          width: 100%;
+        }
       }
-    }
 
-    .card__poster {
-      background: #eee;
-      height: 200px;
-    }
+      .card__title {
+        flex: 1;
+        overflow: visible;
+        padding-top: 3rem;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+      }
 
-    .card__title {
-      flex: 1;
-      max-width: 50%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-wrap: break-word;
-    }
-
-    .card__add {
-      display: none !important;
-      position: absolute;
-      right: 1rem;
-      top: -2rem;
-    }
-
-    .card__mobile {
-      background: #e0e0e0;
-      width: 100%;
-    }
+      .card__add {
+        position: absolute;
+        right: 1rem;
+        top: -2rem;
+        z-index: 2;
+      }
   }
 
   @media (min-width: 768px) {
     .cardList__card {
-      height: initial;
       width: 250px;
-
-      > div {
-        display: initial;
-
-        .card__info {
-          display: initial;
-          height: initial;
-        }
-      }
 
       .card__poster {
         height: 375px;
-      }
+        overflow: none;
 
-      .card__title {
-        max-width: initial;
-        overflow: visible;
-        padding-top: 3rem;
-      }
-
-      .card__add {
-        display: inline-block !important;
-      }
-
-      .card__mobile {
-        display: none;
+        > img {
+          min-height: 100%;
+        }
       }
     }
   }

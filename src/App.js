@@ -57,10 +57,17 @@ export class App extends Component {
             <CardList movies={list.movies} list={list.movies} removeMovie={actions.removeMovie} addMovie={actions.addMovie} />
           </WatchList>
           <CardList movies={results.movies} list={list.movies} removeMovie={actions.removeMovie} addMovie={actions.addMovie} />
-          <LinearProgress mode="indeterminate" style={{
-            margin: '2rem',
-            width: 'calc(100% - 4rem)'
-          }} />
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%'
+          }}>
+            <LinearProgress mode="indeterminate" style={{
+              margin: '2rem',
+              maxWidth: '300px',
+              width: 'calc(100% - 4rem)'
+            }} />
+          </div>
         </div>
       </div>
     );

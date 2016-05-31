@@ -31,11 +31,9 @@ export default class CardList extends React.Component {
             return <Card key={this.props.movies.indexOf(movie)} className='cardList__card' addMovie={this.props.addMovie}>
               <div className='card__info'>
                 <CardMedia>
-                  <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} className='card__poster' style={{
-                    minWidth: 'initial',
-                    maxWidth: 'initial',
-                    width: 'initial'
-                  }} />
+                  <div className='card__poster'>
+                    <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} className='poster__image' />
+                  </div>
                 </CardMedia>
                 <CardTitle className='card__title' title={movie.title}>
                       <FloatingActionButton mini
@@ -46,14 +44,6 @@ export default class CardList extends React.Component {
                       </FloatingActionButton>
                 </CardTitle>
               </div>
-              <CardText className='card__mobile'>
-                <RaisedButton
-                  primary={inWatchList ? true : false}
-                  secondary={inWatchList ? false : true}
-                  onClick={inWatchList ? this.onRemoveButtonClick.bind(this, movie.id) : this.onAddButtonClick.bind(this, movie.id)}
-                  label={inWatchList ? `Remove` : `Add`}
-                  style={{float: 'right'}} />
-              </CardText>
             </Card>;
           }, this)
         }

@@ -32,6 +32,7 @@ export default class WatchList extends React.Component {
         loadedMovieList.push({id: Number(id)})
       }, this)
       loadedMovieList.forEach(this.props.addMovie);
+      this.props.toggleOpen(true);
     }
   }
 

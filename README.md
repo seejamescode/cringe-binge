@@ -1,22 +1,15 @@
+Make a bingelist of movies that will make you cringe. Made for a Redux presentation.
+
+Live at:
+
+http://cringe-binge.mybluemix.net/
+
 ### Usage
+Requires an .env file with the api key.
 
 ```
 npm install
-bower install
 npm start
-```
-
-
-### Pushing
-
-To push to your desired branch and gh-pages.
-
-```
-npm run build
-git add .
-git commit -m 'Your message here.'
-git push origin [branch]
-git subtree push --prefix dist origin gh-pages
 ```
 
 ### [React-Transform-Boilerplate](https://github.com/gaearon/react-transform-boilerplate) Resources
